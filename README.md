@@ -23,8 +23,16 @@ A generic implementation of a Neural Network using a backpropagation algorithm t
       ```
       
  - `Backpropagator.OVAClassifier` - A class used for implementing a One-vs-all multi-class classification algorithm.  
- 	  An `OVAClassifier` is instantiated with the statement:
+ 	An `OVAClassifier` is instantiated with the statement:
  	  
-     ```python
-     OVAClassifier(hidden_units, dimensions, num_loops, gradient_corrective_step)
-     ```
+      ```python
+      Backpropagator.OVAClassifier(hidden_units, dimensions, num_loops, gradient_corrective_step)
+      ```
+     
+ - `Generic_OVA.OVA` - A class containing a generic implementation of a One-vs-All classifier. Unlike `OVAClassifier`, 
+    this is intended to be used if you have written your own predictor from scratch.
+    An `OVA` object is instantiated with the statement:
+
+      ```python
+      Generic_OVA.OVA()
+      ```
