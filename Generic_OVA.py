@@ -43,7 +43,6 @@ class OVA:
 
         probability = self.getProbabilities(x)
         sorted_probability = sorted(probability.items(), key=itemgetter(1), reverse=True)
-        print(probability)
         return sorted_probability[0][0]
 
     def getProbabilities(self, x):
