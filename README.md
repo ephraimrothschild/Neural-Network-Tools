@@ -9,7 +9,7 @@ A generic implementation of a Neural Network using a backpropagation algorithm t
      ```python
      Input(input_vector_as_numpy-array, label)
      ```
- - `Backpropagator.BP` - The class storing the Neural Network.
+ - `Backpropagator.BP` - The class containing the Neural Network.
     A `BP` object is instantiated with the statement:
     
       ```python
