@@ -111,6 +111,33 @@ Any great README should have a good exmple of how to use the tools. So here is o
 
     start()
 ```
+And just in case you were wondering about the accuracy of the algorithm, here is the output produced by the above code:
+
+```
+Number of 0s predicted:   203
+                     Vs:  199 real ones
+Number of 1s predicted:   119
+                     Vs:  120 real ones
+Number of 2s predicted:   101
+                     Vs:  109 real ones
+Number of 3s predicted:   80
+                     Vs:  81 real ones
+Number of 4s predicted:   76
+                     Vs:  93 real ones
+Number of 5s predicted:   60
+                     Vs:  53 real ones
+Number of 6s predicted:   104
+                     Vs:  101 real ones
+Number of 7s predicted:   61
+                     Vs:  60 real ones
+Number of 8s predicted:   93
+                     Vs:  95 real ones
+Number of 9s predicted:   103
+                     Vs:  89 real ones
+
+Number of Accurate Estimates:  913
+Number of Errors:              87
+```
 
 [1]: http://www.mathworks.com/matlabcentral/fileexchange/48567-usps-digit-dataset
 [2]: https://www.python.org/downloads/
