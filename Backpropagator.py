@@ -28,7 +28,7 @@ from sklearn.svm import NuSVC
 class Input:
     def __init__(self, x, y=None):
         # x is the input vector to be sent to the Neural Network. y is the label for that input vector.
-        self.x = np.array(x)
+        self.x = np.array(x, dtype=np.float64)
         self.y = y
 
 # The class that uses backpropagation to predict a result based on an input vector
@@ -45,15 +45,15 @@ class BP:
         self.maxitter = maxitter
         self.d = d
         self.k = k
-        self.bias = bias
+        self.bias = np.float_(bias)
 
         # Initializes weights with random values between -1 and 1
         if W is None:
-            self.W = (np.random.rand(k, d)*2 - 1)/10
+            self.W = np.float_((np.random.rand(k, d)*2 - 1)/10)
         else:
             self.W = W
         if v is None:
-            self.v = (np.random.rand(k)*2 - 1)/10
+            self.v = np.float_((np.random.rand(k)*2 - 1)/10)
         else:
             self.v = v
 
@@ -78,10 +78,10 @@ class BP:
                 # h is equal to the vector containing hyperbolic tangent of each value in a
                 h = np.tanh(a)
                 # Find the error rate
-                y_hat = np.tanh(np.dot(self.v, np.array(h)))
+                y_hat = np.tanh(np.dot(self.v, h))
                 error = input.y - y_hat
                 # Update v with the error*h proportional to nu
-                self.v = self.v+nu*error*np.array(h)
+                self.v = self.v+nu*error*h
                 for i in range(0, self.k):
                     # Update the weight vectors by subtracting the gradient of the error function
                     self.W[i] = self.W[i] + nu*((error*self.v[i])*(1 - (np.tanh(a[i])**2)))*x
@@ -101,15 +101,16 @@ class BP:
             x = wb/np.linalg.norm(wb)
             h = np.tanh(self.W.dot(x))
         else:
+            input_array = np.array(input, dtype=np.float64)
             # Append a bias onto the input if one exists for the Neural Network
             if self.bias:
-                wb = np.append(input, self.bias)
+                wb = np.append(input_array, self.bias)
             else:
-                wb = input
+                wb = input_array
             # Normalize the input vector
             x = wb/np.linalg.norm(wb)
             h = np.tanh(self.W.dot(x))
-        return np.tanh(np.dot(np.array(h), self.v))
+        return np.tanh(np.dot(h, self.v))
 
 # Class that uses Scikit-Learn's implementation of SVM to predict labels
 class svm():
